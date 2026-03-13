@@ -1254,7 +1254,7 @@ function Landing({ onAdmin, onCliente, db }) {
       </header>
 
       <section style={{ background: `linear-gradient(135deg,${primary},${secondary})`, padding: "80px 40px 70px", textAlign: "center", position: "relative", overflow: "hidden" }}>
-        {cfg?.logo && <div style={{ marginBottom: 24 }}><img src={cfg.logo} style={{ height: 140, objectFit: "contain" }} /></div>}
+        {cfg?.logo && <div style={{ marginBottom: 24 }}><img src={cfg.logo} style={{ height: 560, objectFit: "contain" }} /></div>}
         <div style={{ display: "inline-block", background: "rgba(255,255,255,.15)", border: "1px solid rgba(255,255,255,.3)", borderRadius: 40, padding: "5px 22px", fontSize: 12, letterSpacing: 2, color: "#fff", textTransform: "uppercase", marginBottom: 24 }}>⚡ Sistema de Gestión Profesional</div>
         <h1 style={{ fontWeight: 900, fontSize: "clamp(2.2rem,6vw,4.5rem)", color: "#fff", lineHeight: 1.1, margin: "0 0 16px" }}>{cfg?.taller || "MotoTaller Pro"}</h1>
         {cfg?.slogan && <p style={{ fontSize: 18, color: "rgba(255,255,255,.8)", margin: "0 auto 12px", fontStyle: "italic" }}>{cfg.slogan}</p>}
