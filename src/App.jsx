@@ -1,18 +1,14 @@
 import { useState, useEffect, useRef } from "react";
 
 // ═══════════════════════════════════════════════════════════
-// FIREBASE CONFIG — se guarda en localStorage solo para setup
+// FIREBASE CONFIG — URL fija, funciona en todos los dispositivos
 // ═══════════════════════════════════════════════════════════
 const LS_FB_KEY = "mt_firebase_cfg";
-function getFbCfg() {
-  try { return JSON.parse(localStorage.getItem(LS_FB_KEY) || "null"); } catch { return null; }
-}
-function saveFbCfg(cfg) { localStorage.setItem(LS_FB_KEY, JSON.stringify(cfg)); }
+function getFbCfg() { return { url: FB_URL }; }
+function saveFbCfg(cfg) {}  // no necesario, URL ya está fija
 
 // ─── Firebase REST API wrapper ───────────────────────────────
-// Usamos la REST API de Firebase (sin SDK) para máxima compatibilidad
-let FB_URL = "";  // https://TU-PROYECTO.firebaseio.com
-let FB_KEY = "";  // tu API key (para autenticación si se configura)
+let FB_URL = "https://mcanico-taller-de-motos-default-rtdb.firebaseio.com";
 
 function fbUrl(path) { return `${FB_URL}/${path}.json`; }
 
@@ -1040,8 +1036,8 @@ function SecConfig({ cfg, reload }) {
       </Card>
       <Card style={{ padding: 24 }}>
         <div style={{ fontWeight: 800, fontSize: 15, color: primary, marginBottom: 14 }}>🔥 BASE DE DATOS FIREBASE</div>
-        <div style={{ fontSize: 13, color: T.textLight, marginBottom: 14 }}>URL: <strong style={{ color: T.text }}>{FB_URL}</strong></div>
-        <Btn variant="grey" onClick={cambiarFirebase}>🔄 Cambiar base de datos</Btn>
+        <div style={{ fontSize: 13, color: T.textLight, marginBottom: 4 }}>Estado: <strong style={{ color: T.success }}>✅ Conectado</strong></div>
+        <div style={{ fontSize: 12, color: T.textLight }}>URL: {FB_URL}</div>
       </Card>
     </div>
   );
@@ -1328,24 +1324,10 @@ function Landing({ onAdmin, onCliente, db }) {
 // APP ROOT
 // ═══════════════════════════════════════════════════════════
 export default function App() {
-  const [fbReady, setFbReady] = useState(false);
   const [vista, setVista] = useState("landing");
   const [clienteActivo, setClienteActivo] = useState(null);
 
-  useEffect(() => {
-    const saved = getFbCfg();
-    if (saved?.url) { FB_URL = saved.url; setFbReady(true); }
-  }, []);
-
   const db = useFirebase();
-
-  if (!fbReady) return (
-    <>
-      <style>{`* { box-sizing:border-box; margin:0; padding:0; } body { font-family: system-ui, sans-serif; }`}</style>
-      <Toasts />
-      <SetupFirebase onDone={() => { setFbReady(true); }} />
-    </>
-  );
 
   return (
     <>
