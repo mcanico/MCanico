@@ -1086,7 +1086,7 @@ function AdminPanel({ onSalir, db }) {
     <div style={{ display: "flex", minHeight: "100vh", background: T.bg }}>
       <aside style={{ width: 228, background: `linear-gradient(180deg,${primary},${secondary})`, display: "flex", flexDirection: "column", flexShrink: 0, position: "sticky", top: 0, height: "100vh", boxShadow: "2px 0 16px rgba(21,101,192,.18)" }}>
         <div style={{ padding: "22px 18px 18px", borderBottom: "1px solid rgba(255,255,255,.15)" }}>
-          {cfg?.logo ? <img src={cfg.logo} style={{ height: 40, maxWidth: 160, objectFit: "contain" }} alt="logo" />
+          {cfg?.logo ? <img src={cfg.logo} style={{ height: 72, maxWidth: 180, objectFit: "contain" }} alt="logo" />
             : <div style={{ fontWeight: 900, fontSize: 18, color: "#fff" }}>{cfg?.taller}</div>}
           {cfg?.slogan && <div style={{ fontSize: 11, color: "rgba(255,255,255,.6)", marginTop: 4 }}>{cfg.slogan}</div>}
           <div style={{ marginTop: 10, display: "flex", alignItems: "center", gap: 6 }}>
@@ -1131,7 +1131,7 @@ function PortalCliente({ cliente, onSalir, db }) {
     <div style={{ minHeight: "100vh", background: T.bg }}>
       <header style={{ background: `linear-gradient(135deg,${primary},${secondary})`, padding: "16px 32px", display: "flex", justifyContent: "space-between", alignItems: "center", boxShadow: "0 2px 12px rgba(21,101,192,.2)" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
-          {cfg?.logo ? <img src={cfg.logo} style={{ height: 36, objectFit: "contain" }} alt="logo" /> : <div style={{ fontWeight: 900, fontSize: 20, color: "#fff" }}>{cfg?.taller}</div>}
+          {cfg?.logo ? <img src={cfg.logo} style={{ height: 70, objectFit: "contain" }} alt="logo" /> : <div style={{ fontWeight: 900, fontSize: 20, color: "#fff" }}>{cfg?.taller}</div>}
           <div style={{ color: "rgba(255,255,255,.7)", fontSize: 13 }}>Portal del Cliente</div>
         </div>
         <div style={{ display: "flex", gap: 10 }}>
@@ -1243,7 +1243,7 @@ function Landing({ onAdmin, onCliente, db }) {
     <div style={{ minHeight: "100vh", background: "#f0f4f8", color: T.text }}>
       <header style={{ background: "#fff", borderBottom: "1px solid #dde3ed", padding: "0 40px", display: "flex", justifyContent: "space-between", alignItems: "center", height: 68, boxShadow: "0 1px 8px rgba(21,101,192,.08)", position: "sticky", top: 0, zIndex: 10 }}>
         <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-          {cfg?.logo ? <img src={cfg.logo} style={{ height: 42, objectFit: "contain" }} alt="logo" />
+          {cfg?.logo ? <img src={cfg.logo} style={{ height: 72, objectFit: "contain" }} alt="logo" />
             : <div style={{ fontWeight: 900, fontSize: 22, color: primary }}>{cfg?.taller || "MotoTaller Pro"}</div>}
           {cfg?.slogan && <div style={{ fontSize: 13, color: T.textLight, borderLeft: "1px solid #dde3ed", paddingLeft: 12 }}>{cfg.slogan}</div>}
         </div>
@@ -1254,7 +1254,7 @@ function Landing({ onAdmin, onCliente, db }) {
       </header>
 
       <section style={{ background: `linear-gradient(135deg,${primary},${secondary})`, padding: "80px 40px 70px", textAlign: "center", position: "relative", overflow: "hidden" }}>
-        {cfg?.logo && <div style={{ marginBottom: 20 }}><img src={cfg.logo} style={{ height: 64, objectFit: "contain", filter: "brightness(0) invert(1)", opacity: .85 }} /></div>}
+        {cfg?.logo && <div style={{ marginBottom: 24 }}><img src={cfg.logo} style={{ height: 140, objectFit: "contain" }} /></div>}
         <div style={{ display: "inline-block", background: "rgba(255,255,255,.15)", border: "1px solid rgba(255,255,255,.3)", borderRadius: 40, padding: "5px 22px", fontSize: 12, letterSpacing: 2, color: "#fff", textTransform: "uppercase", marginBottom: 24 }}>⚡ Sistema de Gestión Profesional</div>
         <h1 style={{ fontWeight: 900, fontSize: "clamp(2.2rem,6vw,4.5rem)", color: "#fff", lineHeight: 1.1, margin: "0 0 16px" }}>{cfg?.taller || "MotoTaller Pro"}</h1>
         {cfg?.slogan && <p style={{ fontSize: 18, color: "rgba(255,255,255,.8)", margin: "0 auto 12px", fontStyle: "italic" }}>{cfg.slogan}</p>}
